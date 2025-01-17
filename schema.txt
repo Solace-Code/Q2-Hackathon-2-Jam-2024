@@ -1,5 +1,0 @@
-Api
-https://template6-six.vercel.app/api/products
-
-Schema
-https://github.com/developer-hammad-rehman/template6/blob/main/src/sanity/schemaTypes/product.ts
