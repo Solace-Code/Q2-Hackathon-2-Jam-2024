@@ -1,0 +1,2927 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: white;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+.offer-navbar-container{
+  display: flex;
+  height: 58px;
+  width: 100%;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #252B42;
+}
+
+.offer-navbar-phone, .offer-navbar-email{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offer-navbar-socials-content{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offer-navbar-icon{
+  font-size: 1.5em;
+}
+
+.offer-navbar-social-icon{
+  display: flex;
+  font-size: 1.5em;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.navbar-section{
+  display: flex;
+  height: 90px;
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+.navbar-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.navbar-logo-container{
+  font-size: 1.5em;
+  font-weight: 600;
+  color: black;
+}
+
+.navbar-ul{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-li{
+  font-size: 1.1em;
+  font-weight: 300;
+  color: black;
+}
+
+.navbar-li:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.navbar-items-container{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-account-container{
+  display: flex;
+  align-items: center;
+  color: #00b0d7;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.navbar-search-icon, .navbar-cart-icon, .navbar-heart-icon{
+  font-size: 1.5em;
+  color: #00b4d9;
+  cursor: pointer;
+}
+
+.responsive-navbar-section{
+  display: flex;
+  height: 100px;
+  width: 100%;
+  display: none;
+}
+
+.responsive-navbar-ul-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsive-navbar-ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.responsive-navbar-li{
+  display: flex;
+  font-size: 1.1em;
+  font-weight: 300;
+  gap: 20px;
+  color: black;
+}
+
+.home-section{
+  background-image: url(/images/main.webp);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.home-section-content{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.home-section-content-left{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  overflow: hidden;
+}
+
+.home-content-title{
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.home-content-heading{
+  font-size: 4.5em;
+  font-weight: 600;
+}
+
+.home-content-paragraph{
+  font-size: 1.7em;
+  font-weight: 300;
+  max-width: 500px;
+}
+
+.home-content-btn{
+  width: 221px;
+  height: 62px;
+  background-color: #2dc071;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Editor's Pick Section */
+.editor-pick-section {
+  padding: 50px 20px;
+  background-color: #f8f9fa;
+  width: 100%; /* Full width */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.editor-pick-text {
+  margin-bottom: 30px;
+}
+
+.editor-pick-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.editor-pick-subheading {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* Flex Layout */
+.editor-pick-flex {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Column for Accessories and Kids */
+.editor-pick-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Specific Card Styles */
+.editor-pick-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Individual Box Sizes */
+.editor-pick-men {
+  width: 510px;
+  height: 500px;
+}
+
+.editor-pick-women {
+  width: 240px;
+  height: 500px;
+}
+
+.editor-pick-accessories {
+  width: 240px;
+  height: 242px;
+}
+
+.editor-pick-kids {
+  width: 240px;
+  height: 242px;
+}
+
+/* Image Styling */
+.editor-pick-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* Overlay and Button Styling */
+.editor-pick-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+}
+
+.editor-pick-button {
+  background: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+}
+
+/* Button Specific Sizes */
+.men-button {
+  width: 170px;
+  height: 48px;
+}
+
+.women-button {
+  width: 136px;
+  height: 48px;
+}
+
+.accessories-button {
+  width: 170px;
+  height: 48px;
+}
+
+.kids-button {
+  width: 120px;
+  height: 48px;
+}
+
+.vita-product-section{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+  background-color: #23856D;
+}
+
+.vita-product-section-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.vita-product-left{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow: hidden;
+}
+
+.vita-product-heading-container{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.vita-product-heading-1{
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+.vita-product-heading-2{
+  font-size: 4em;
+  font-weight: 600;
+  max-width: 500px;
+}
+
+.vita-product-heading-3{
+  font-size: 1.3em;
+  font-weight: 300;
+  max-width: 500px;
+}
+
+.vita-product-content-container{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.vita-product-price{
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.vita-product-button{
+  display: flex;
+  align-items: center;
+}
+
+.vita-product-button-btn{
+  width: 184px;
+  height: 52px;
+  background-color: #2dc071;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.vita-product-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  padding: 0 20px;
+}
+
+.vita-product-image {
+  width: 100%; /* Allow image to take up 100% of the width of its container */
+  max-width: 443px; /* Restrict the image width to a maximum of 443px */
+  height: auto; /* Let the height adjust according to the aspect ratio */
+}
+
+.vita-product-image-img {
+  object-fit: contain; /* Ensures the image is fully visible while preserving its aspect ratio */
+  width: 100%;
+  height: 100%;
+}
+
+.universe-section{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  color: black;
+  overflow: hidden;
+}
+
+.universe-section-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between; /* Ensures left and right sections are spaced */
+  align-items: center;
+  padding: 0 20px; /* Optional, adds spacing around the sections */
+}
+
+.universe-section-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%; /* Ensures the left side takes up half of the container */
+  padding: 0 20px; /* Optional, adds spacing around the image */
+  overflow: hidden;
+  height: 100%; /* Ensure the left section takes the full height */
+}
+
+.universe-section-image-container{
+  width: 100%;
+  height: 80%; /* Adjust height to make the image taller */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.universe-section-image {
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+  width: 100%;
+  height: 100%; /* Makes the image fill the container vertically */
+}
+
+.universe-section-right{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 50%; /* Ensures the right side takes up the other half of the container */
+}
+
+.universe-section-heading-container{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.universe-heading-1{
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.universe-heading-2{
+  font-size: 3em;
+  font-weight: 600;
+  max-width: 500px;
+}
+
+.universe-heading-3{
+  font-size: 1.3em;
+  font-weight: 200;
+  max-width: 500px;
+}
+
+.universe-section-button-container{
+  display: flex;
+  gap: 10px;
+}
+
+.universe-buy-button-btn,
+.universe-read-button-btn{
+  width: 184px;
+  height: 52px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.universe-buy-button-btn{
+  background-color: #2dc071;
+  color: #FFFFFF;
+  border: none;
+}
+
+.universe-read-button-btn{
+  background-color: white;
+  color: #2DC071;
+  border: none;
+}
+
+
+.practice-advice-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 60px 0;
+  background-color: #f4f4f4; /* Optional background color */
+}
+
+.practice-advice-headings {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.practice-advice-heading-1,
+.practice-advice-heading-2,
+.practice-advice-heading-3 {
+  margin-bottom: 20px;
+}
+
+.practice-advice-heading-1 h1,
+.practice-advice-heading-2 h1,
+.practice-advice-heading-3 h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2dc071;
+}
+
+.practice-advice-box-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.practice-advice-box {
+  width: 328px;
+  height: 606px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.practice-advice-image {
+  height: 70%; /* Takes up most of the box */
+  width: 100%;
+  overflow: hidden;
+}
+
+.practice-advice-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area */
+}
+
+.practice-advice-content {
+  height: 30%; /* Takes up the bottom part of the box */
+  padding: 10px;
+  font-size: 1em;
+  text-align: center;
+  color: #333;
+}
+
+.practice-advice-content p {
+  margin: 0;
+}
+
+.footer-section{
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+}
+
+/* Shop Page Styling*/
+
+.shop-main-section-navbar {
+  display: flex;
+  height: 92px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.shop-main-navbar-heading {
+  font-size: 1.6em;
+  font-weight: 600;
+  color: black;
+}
+
+.shop-main-navbar-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.shop-navbar-items-1,
+.shop-navbar-items-2,
+.shop-navbar-items-3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  color: black;
+}
+
+.shop-main-categories-section {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.shop-main-section-category-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows categories to wrap if needed */
+  gap: 30px;
+}
+
+.category-box-1,
+.category-box-2,
+.category-box-3,
+.category-box-4,
+.category-box-5 {
+  display: flex;
+  position: relative;
+  height: 223px;
+  width: 205px;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.category-box-1 {
+  background-image: url('/images/card1.webp');
+}
+
+.category-box-2 {
+  background-image: url('/images/card2.webp');
+}
+
+.category-box-3 {
+  background-image: url('/images/card3.webp');
+}
+
+.category-box-4 {
+  background-image: url('/images/card4.webp');
+}
+
+.category-box-5 {
+  background-image: url('/images/card5.webp');
+}
+
+.category-box-overlay {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Adds a translucent overlay */
+  align-items: center;
+  justify-content: center;
+}
+
+.category-box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.category-box-content-heading h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.category-box-content-content p {
+  font-size: 1rem;
+}
+
+.shop-main-section-footer{
+  display: flex;
+  height: 98px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.shop-main-footer-item-1{
+  font-size: 1.2em;
+  font-weight: 300;
+  color: black;
+}
+
+.shop-main-footer-item-2{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: black;
+  cursor: pointer;
+}
+
+.shop-main-footer-item-2-heading{
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+.shop-main-footer-item-3{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popularity-btn{
+  width: 140px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-btn{
+  width: 94px;
+  height: 50px;
+  background-color: #23A6F0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.company-logo-section{
+  display: flex;
+  height: 175px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.company-logo-icon-container{
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.company-logo-icon{
+  align-items: center;
+  font-size: 7.5em;
+  color: #797979;
+}
+
+/* About Page Styling */
+
+.about-main-section{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.about-main-left{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow: hidden;
+}
+
+.about-main-left-heading-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  color: black;
+  gap: 30px;
+}
+
+.about-main-left-heading-1{
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.about-main-left-heading-2{
+  font-size: 3.5em;
+  font-weight: 600;
+}
+
+.about-main-left-heading-3{
+  font-size: 1.3em;
+  font-weight: 200;
+  max-width: 350px;
+}
+
+.about-main-left-button-container{
+  display: flex;
+  align-items: center;
+}
+
+.about-left-button{
+  width: 195px;
+  height: 52px;
+  background-color: #23a6f0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.about-main-right{
+  background-image: url(/images/about.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.about-main-right-bg-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.about-main-bg-first{
+  display: flex;
+  height: 77.39px;
+  width: 77.39px;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFE9EA;
+  z-index: -100;
+}
+
+.about-main-bg-second{
+  display: flex;
+  height: 484.06px;
+  width: 484.06px;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFE9EA;
+  z-index: -100;
+
+}
+
+.about-section-2{
+  display: flex;
+  height: 236px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.about-section-2-left{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 35px;
+  gap: 20px;
+}
+
+.about-section-2-left-heading-1{
+  font-size: 1.1em;
+  font-weight: 250;
+  color: #E74040;
+}
+
+.about-section-2-left-heading-2{
+  font-size: 1.6em;
+  font-weight: 300;
+  max-width: 500px;
+  color: black;
+}
+
+.about-section-2-right{
+  display: flex;
+  overflow: hidden;
+}
+
+.about-section-2-right-content{
+  font-size: 1.3em;
+  font-weight: 300;
+  color: black;
+  max-width: 550px;
+}
+
+.about-section-3{
+  display: flex;
+  align-items: center;
+  height: 264px;
+  width: 100%;
+}
+
+.about-section-3-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 30px;
+}
+
+.about-section-3-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-section-3-item-heading-1{
+  font-size: 2em;
+  font-weight: 600;
+  color: black;
+}
+
+.about-section-3-item-heading-2{
+  font-size: 1.2em;
+  font-weight: 300;
+  color: gray;
+}
+
+.about-video-section{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.about-video-card-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-video-card:hover{
+  cursor: pointer;
+}
+
+.about-team-section{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.about-team-container{
+  display: flex;
+  gap: 20px;
+}
+
+.about-team-container:hover{
+  cursor: pointer;
+}
+
+.about-team-heading-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.about-team-heading-1{
+  font-size: 2.5em;
+  font-weight: 600;
+  color: black;
+}
+
+.about-team-heading-2{
+  font-size: 1.2em;
+  font-weight: 300;
+  color: gray;
+  max-width: 500px;
+}
+
+.about-team-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-team-box{
+  display: flex;
+  flex-direction: column;
+  height: 383px;
+  width: 318px;
+}
+
+.about-team-box-img{
+  display: flex;
+  height: 231px;
+  width: 316px;
+}
+
+.about-team-img-img{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-team-box-content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.about-team-content-heading-1{
+  font-size: 1.2em;
+  font-weight: 600;
+  color: black;
+}
+
+.about-team-content-heading-2{
+  font-size: 1.1em;
+  font-weight: 300;
+  color: black;
+}
+
+.about-team-content-socials{
+  display: flex;
+  gap: 20px;
+  color: #23a6f0;
+}
+
+.about-team-socials-facebook, .about-team-socials-instagram, .about-team-socials-twitter{
+  font-size: 1.3em;
+}
+
+/* About Big Companies Area Styling */
+
+.about-company-area-section{
+  display: flex;
+  flex-direction: column;
+  height: 479px;
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-company-heading-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.about-company-heading-1{
+  font-size: 3em;
+  font-weight: 600;
+  color: black;
+}
+
+.about-company-heading-2{
+  font-size: 1em;
+  font-weight: 600;
+  color: gray;
+  max-width: 450px;
+}
+
+.about-company-area-logo-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  overflow: hidden;
+}
+
+.about-company-area-logo-icon{
+  font-size: 6em;
+  font-weight: 600;
+  color: gray;
+}
+
+.about-company-area-logo-icon:hover{
+  cursor: pointer;
+}
+
+/* About work section styling */
+
+.work-section {
+  height: 636px;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.work-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.work-content {
+  width: 60%;
+  background-color: #2a7cc7;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.work-text {
+  max-width: 36rem;
+}
+
+.work-subtitle {
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.work-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.work-description {
+  color: white;
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.work-button {
+  width: fit-content;
+  padding: 0.75rem 2rem;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.work-button:hover {
+  background-color: white;
+  color: #2a7cc7;
+}
+
+.work-image {
+  width: 40%;
+  position: relative;
+}
+
+.work-img {
+  object-fit: cover;
+}
+
+
+/* Pricing Page Styling */
+
+.simple-pricing-section{
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.simple-pricing-heading-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+}
+
+.simple-pricing-heading-1{
+  font-size: 2em;
+  font-weight: 600;
+  color: black;
+}
+
+.simple-pricing-heading-2{
+  font-size: 3.5em;
+  font-weight: 600;
+  color: black;
+}
+
+.simple-pricing-nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.simple-price-nav-item-1{
+  font-size: 1.1em;
+  font-weight: 600;
+  color: black;
+}
+
+.simple-price-nav-item-2{
+  font-size: 1.5em;
+  font-weight: 600;
+  color: gray;
+}
+
+.simple-price-nav-item-3{
+  font-size: 1.1em;
+  font-weight: 600;
+  color: gray;
+}
+
+.price-section{
+  display: flex;
+  flex-direction: column;
+  height: 384px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+.price-section-heading-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.price-section-heading-1{
+  font-size: 3em;
+  font-weight: 600;
+  color: black;
+}
+
+.price-section-heading-2{
+  font-size: 1.2em;
+  font-weight: 300;
+  color: gray;
+  max-width: 500px;
+}
+
+.price-nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  width: 100%;
+  gap: 20px;
+}
+
+.price-nav-item-1{
+  font-size: 1.5em;
+  font-weight: 600;
+  color: black;
+}
+
+.price-nav-item-3{
+  font-size: 1.5em;
+  font-weight: 600;
+  color: black;
+}
+
+.price-nav-btn {
+  width: 109px;
+  height: 47px;
+  background-color: #B2E3FF;
+  color: #23a6f0;
+  border: none;
+  border-radius: 23.5px; /* Half the height to make it capsule-shaped */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/*Price plan styling Section */
+
+/* Price Plans Section Styling */
+
+.price-plan-section{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-plan-section-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.price-plan-card {
+  width: 327px;
+  height: 664px;
+  border: 1px solid #ECECEC;
+  border-radius: 10px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-plan-header {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.plan-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #252B42;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #23A6F0;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.currency {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.price-number {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.plan-period {
+  font-size: 14px;
+}
+
+.plan-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.benefit-item span {
+  font-size: 14px;
+  color: #252B42;
+}
+
+.tickmark-container {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tickmark-container svg {
+  color: white;
+  font-size: 20px;
+}
+
+/* Free plan tickmarks */
+.free-tickmark {
+  background-color: #BDBDBD;
+}
+
+/* Standard plan tickmarks */
+.standard-tickmark-primary {
+  background-color: #2DC071;
+}
+
+.standard-tickmark-secondary {
+  background-color: #BDBDBD;
+}
+
+/* Premium plan tickmarks */
+.premium-tickmark {
+  background-color: #2DC071;
+}
+
+.try-button {
+  margin-top: auto;
+  background: #23A6F0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.trusted-section{
+  display: flex;
+  flex-direction: column;
+  height: 365px;
+  width: 100%;
+  justify-content: center;
+}
+
+.trusted-section-heading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  font-weight: 600;
+  color: #6c757d;
+  height: 50%;
+  width: 100%;
+}
+
+.trusted-logos-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+  gap: 70px;
+}
+
+.trusted-logo-icon{
+  font-size: 6em;
+  font-weight: 600;
+  color: gray;
+}
+
+.pricing-faqs-section {
+  display: flex;
+  flex-direction: column;
+  height: 1037px;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.trial-section{
+  display: flex;
+  flex-direction: column;
+  height: 582px;
+  width: 100%;
+  gap: 50px;
+}
+
+.trial-heading-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.trial-heading-1{
+  font-size: 3em;
+  font-weight: 600;
+  color: black;
+}
+
+.trial-heading-2{
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #6c757d;
+  max-width: 590px;
+}
+
+.trial-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trial-button{
+  width: 186px;
+  height: 52px;
+  background-color: #23a6f0;
+  color: white;
+  border: none;
+  border-radius: 5%; /* Half the height to make it capsule-shaped */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.trial-socials-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  color: black;
+}
+
+.trial-socials-icon{
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.trial-socials-icon:hover{
+  cursor: pointer;
+}
+
+/* Contact Page Styling */
+
+.contact-main-section{
+  display: flex;
+  height: 882px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-main-content-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.contact-main-content-left{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.contact-main-content-left-heading-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  color: black;
+  overflow: hidden;
+}
+
+.contact-main-content-heading-1{
+  font-size: 1.3em;
+  font-weight: 600;
+  color: black;
+}
+
+.contact-main-content-heading-2{
+  font-size: 4em;
+  font-weight: 600;
+  max-width: 500px;
+  color: black;
+}
+
+.contact-main-content-heading-3{
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #797979;
+  max-width: 500px;
+}
+
+.contact-main-content-contact-phone{
+  font-size: 1.2em;
+  font-weight: 600;
+  color: black;
+}
+
+.contact-main-content-contact-fax{
+  font-size: 1.2em;
+  font-weight: 600;
+  color: black;
+}
+
+.contact-main-content-socials-container{
+  display: flex;
+  gap: 20px;
+}
+
+.contact-socials-icon{
+  font-size: 2em;
+  font-weight: 600;
+  color: black;
+}
+
+.contact-socials-icon:hover{
+  cursor: pointer;
+}
+
+.contact-main-content-right{
+  display: flex;
+  height: 100%;
+  width: 50%;
+  background-image: url(/images/contact.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+.contact-main-right-bg-1{
+  display: flex;
+  height: 77.39px;
+  width: 77.39px;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFE9EA;
+  z-index: -100;
+}
+
+.contact-main-right-bg-2{
+  display: flex;
+  height: 484.06px;
+  width: 484.06px;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFE9EA;
+  z-index: -100;
+}
+
+.visit-section{
+  display: flex;
+  flex-direction: column;
+  height: 814px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.visit-heading-container{
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.vist-heading-1{
+  font-size: 1.2em;
+  font-weight: 600;
+  color: black;
+}
+
+.visit-heading-2{
+  font-size: 2.5em;
+  font-weight: 600;
+  color: black;
+}
+
+.vist-contact-container{
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.visit-contact-box-content-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.visit-contact-box{
+  display: flex;
+  flex-direction: column;
+  height: 343px;
+  width: 327px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.visit-contact-box:hover{
+  background-color: #252b42;
+  border: 1px solid black;
+  cursor: pointer;
+  height: 403px;
+  padding-bottom: 50px;
+  transform: translate(ease);
+}
+
+.visit-contact-box-icon{
+  font-size: 5em;
+  font-weight: 600;
+  color: black;
+}
+
+.visit-contact-box-content-container{
+  align-items: center;
+  gap: 10px;
+}
+
+.visit-contact-box-heading-container{
+  gap: 10px;
+}
+
+.visit-contact-box-heading-1{
+  font-size: 1em;
+  font-weight: 600;
+  color: black;
+}
+
+.visit-contact-box-heading-2{
+  font-size: 1em;
+  font-weight: 600;
+  color: black;
+}
+
+.visit-contact-box-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.visit-contact-box-contact-heading{
+  font-size: 1.3em;
+  font-weight: 600;
+  color: black;
+}
+
+.visit-contact-box-button{
+  width: 193px;
+  height: 54px;
+  background-color: transparent;
+  color: #23A6F0;
+  border: 1px solid #23A6F0;
+  border-radius: 23.5px; /* Half the height to make it capsule-shaped */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lets-talk-section{
+  display: flex;
+  flex-direction: column;
+  height: 348px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.lets-talk-heading-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.lets-talk-heading-1{
+  font-size: 1.7em;
+  font-weight: 600;
+  color: black;
+}
+
+.lets-talk-heading-2{
+  font-size: 3em;
+  font-weight: 600;
+  color: black;
+}
+
+.lets-talk-section-button-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lets-talk-btn{
+  width: 186px;
+  height: 52px;
+  background-color: #23A6F0;
+  color: white;
+  border: none;
+  border-radius: 23.5px; /* Half the height to make it capsule-shaped */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsiveness Styling */
+
+@media (max-width: 768px) {
+  /* Hide offer-navbar-container */
+  .offer-navbar-container {
+    display: none;
+  }
+
+  /* Adjust navbar to show logo and ul items on separate lines */
+
+  .navbar-container{
+    display: flex;
+  }
+
+  .navbar-ul{
+   display: none;
+  }
+
+  .navbar-account-container{
+    display: none;
+  }
+
+  .responsive-navbar-section{
+    display: block;
+  }
+ 
+ /* Adjust home-section for responsiveness */
+  .home-section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto; /* Allow height to adjust with content */
+    padding: 20px;
+  }
+
+  .home-section-content {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center; /* Center-align content for better mobile experience */
+    gap: 20px;
+  }
+
+  .home-section-content-left {
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: visible;
+  }
+
+  .home-content-title {
+    font-size: 1.2em;
+  }
+
+  .home-content-heading {
+    font-size: 3em; /* Adjust font size for smaller screens */
+  }
+
+  .home-content-paragraph {
+    font-size: 1.2em;
+    max-width: 90%; /* Reduce width to fit mobile screens */
+  }
+
+  .home-content-btn {
+    width: 180px; /* Smaller button for mobile */
+    height: 50px;
+    font-size: 14px;
+  }
+  /* Editors Pick Section*/
+  .editor-pick-flex {
+    flex-direction: column; /* Stack the items vertically */
+    gap: 30px; /* Adjust the gap between the items */
+  }
+
+  /* Column Layout for Men, Women, Accessories, and Kids */
+  .editor-pick-column {
+    display: flex;
+    flex-direction: column; /* Ensure column layout for Accessories and Kids */
+    gap: 30px; /* Adjust gap between Accessories and Kids sections */
+    width: 100%; /* Ensure column container takes full width */
+  }
+
+  /* Ensure each section (Men, Women, Accessories, Kids) takes full width */
+  .editor-pick-men,
+  .editor-pick-women,
+  .editor-pick-accessories,
+  .editor-pick-kids {
+    width: 100%; /* Full width on mobile */
+    height: 250px; /* Set a fixed height for debugging */
+  }
+
+  /* Ensure buttons take full width of their parent container */
+  .men-button, 
+  .women-button, 
+  .accessories-button, 
+  .kids-button {
+    width: 100%; /* Full width of buttons */
+    height: 48px; /* Consistent button height */
+  }
+  
+  /* Vita Section styling*/
+  .vita-product-section {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow height to adjust based on content */
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    background-color: #23856D;
+  }
+
+  .vita-product-section-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Adjust height based on content */
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 20px;
+  }
+
+  .vita-product-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust gap for better spacing */
+    overflow: hidden;
+    width: 100%; /* Ensure full width on smaller screens */
+    order: 1; /* Move it to the top */
+  }
+
+  .vita-product-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Adjust height to content */
+    width: 100%; /* Ensure full width on smaller screens */
+    padding: 0 20px;
+    order: 2; /* Move it to the bottom */
+  }
+
+  .vita-product-image {
+    width: 100%;
+    max-width: 100%; /* Ensure image width is responsive */
+    height: auto;
+  }
+
+  .vita-product-heading-2 {
+    font-size: 2em; /* Adjust font size for smaller screens */
+    max-width: 100%; /* Ensure heading doesn't overflow */
+  }
+
+  .vita-product-heading-1, .vita-product-heading-3 {
+    font-size: 1.1em; /* Slightly reduce font size */
+    max-width: 100%;
+  }
+
+  .vita-product-content-container {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+    gap: 20px; /* Adjust gap for better spacing */
+  }
+
+  .vita-product-price {
+    font-size: 1.1em; /* Adjust font size */
+  }
+
+  .vita-product-button-btn {
+    width: 100%; /* Ensure button takes full width on smaller screens */
+    max-width: 300px; /* Restrict button size */
+    height: 48px; /* Adjust height */
+  }
+
+  /*Universe Section Styling*/
+
+  .universe-section {
+    display: flex;
+    flex-direction: column; /* Stack left and right sections vertically */
+    height: auto; /* Adjust height based on content */
+    width: 100%;
+    align-items: center;
+    color: black;
+    overflow: hidden;
+  }
+
+  .universe-section-container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    height: auto; /* Adjust height based on content */
+    width: 100%;
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .universe-section-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width on smaller screens */
+    height: 50%; /* Restrict the height to avoid overflowing */
+    padding: 0 20px;
+    overflow: hidden;
+    order: 2; /* Move the left side (image) to the bottom */
+  }
+
+  .universe-section-image-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .universe-section-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .universe-section-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust gap for better spacing */
+    width: 100%; /* Full width on smaller screens */
+    height: 50%; /* Restrict height to prevent overflow */
+    order: 1; /* Move the right side (content) to the top */
+  }
+
+  .universe-section-heading-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust gap for better spacing */
+  }
+
+  .universe-heading-2 {
+    font-size: 2em; /* Adjust font size for smaller screens */
+    max-width: 100%; /* Ensure heading fits within container */
+  }
+
+  .universe-heading-1, .universe-heading-3 {
+    font-size: 1.1em; /* Slightly reduce font size */
+    max-width: 100%;
+  }
+
+  .universe-section-button-container {
+    display: flex;
+    gap: 10px;
+    flex-direction: column; /* Stack buttons vertically */
+    width: 100%;
+  }
+
+  .universe-buy-button-btn,
+  .universe-read-button-btn {
+    width: 100%; /* Make buttons take full width */
+    max-width: 300px; /* Restrict button width */
+    height: 48px; /* Adjust height for better fit */
+  }
+
+  /* Shop Page Styling*/
+
+   /* Navbar */
+   .shop-main-section-navbar {
+    display: flex;
+    flex-direction: column; /* Stack navbar items vertically */
+    height: auto;
+    padding: 20px;
+    align-items: center; /* Center navbar content */
+    justify-content: center;
+  }
+
+  .shop-main-navbar-heading {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .shop-main-navbar-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .shop-navbar-items-1,
+  .shop-navbar-items-2,
+  .shop-navbar-items-3 {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: black;
+  }
+
+  /* Categories Section */
+  .shop-main-categories-section {
+    display: flex;
+    flex-direction: column; /* Stack categories vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .shop-main-section-category-container {
+    display: flex;
+    flex-direction: column; /* Stack category boxes vertically */
+    align-items: center; /* Center the categories */
+    gap: 30px;
+    width: 100%;
+  }
+
+  .category-box-1,
+  .category-box-2,
+  .category-box-3,
+  .category-box-4,
+  .category-box-5 {
+    display: flex;
+    position: relative;
+    height: 223px;
+    width: 205px;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+  }
+
+  /* Footer */
+  .shop-main-section-footer {
+    display: flex;
+    flex-direction: column; /* Stack footer items vertically */
+    align-items: center; /* Center footer items */
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+  }
+
+  .shop-main-footer-item-1 {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .shop-main-footer-item-2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .shop-main-footer-item-2-heading {
+    font-size: 1.1em;
+    font-weight: 300;
+  }
+
+  .shop-main-footer-item-3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .popularity-btn,
+  .filter-btn {
+    width: 100%; /* Make buttons take full width */
+    max-width: 400px; /* Restrict button width */
+    height: 48px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .popularity-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .filter-btn {
+    background-color: #23A6F0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .company-logo-section {
+    flex-direction: column; /* Stacks the section content vertically */
+    height: auto; /* Adjusts the height based on content */
+    padding: 20px 0; /* Optional, adds spacing to top and bottom */
+  }
+
+  .company-logo-icon-container {
+    flex-direction: column; /* Stacks the icons vertically */
+    gap: 20px; /* Space between icons */
+    width: 100%; /* Ensures container takes full width */
+    justify-content: center; /* Centers icons horizontally */
+    align-items: center; /* Centers icons vertically */
+  }
+
+  .company-logo-icon {
+    font-size: 5em; /* Adjusts the icon size for small screens */
+  }
+
+  /*shop product*/
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure it takes full width */
+  }
+
+  /* About Page Styling*/
+
+  @media (max-width: 768px) {
+    .about-main-section {
+      display: flex;
+      flex-direction: column; /* Stack sections vertically */
+      height: auto; /* Adjust height to fit content */
+      width: 100%;
+      align-items: center; /* Center content horizontally */
+      justify-content: flex-start; /* Align content at the top */
+      overflow: visible; /* Allow content to overflow if needed */
+      gap: 30px; /* Add space between left and right sections */
+    }
+  
+    .about-main-left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%; /* Make sure left section takes full width */
+      overflow: visible; /* Allow content to overflow */
+    }
+  
+    .about-main-left-heading-container {
+      display: flex;
+      flex-direction: column;
+      height: auto; /* Allow height to adjust based on content */
+      width: 100%; /* Ensure it takes full width */
+      color: black;
+      gap: 30px;
+    }
+  
+    .about-main-left-heading-1 {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+  
+    .about-main-left-heading-2 {
+      font-size: 2.5em; /* Adjust font size for mobile */
+      font-weight: 600;
+    }
+  
+    .about-main-left-heading-3 {
+      font-size: 1.2em; /* Adjust font size for mobile */
+      font-weight: 200;
+      max-width: 100%; /* Ensure the text wraps properly */
+    }
+  
+    .about-main-left-button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center button horizontally */
+    }
+  
+    .about-left-button {
+      width: 195px;
+      height: 52px;
+      background-color: #23a6f0;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center; /* Center text inside the button */
+    }
+  
+    .about-main-right {
+      background-image: url(/images/about.webp);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 250px; /* Adjust height for mobile */
+      width: 100%; /* Ensure it takes full width */
+      overflow: hidden;
+    }
+  
+    .about-main-right-bg-container {
+      display: flex;
+      height: auto; /* Adjust height to fit content */
+      width: 100%;
+    }
+  
+    .about-main-bg-first,
+    .about-main-bg-second {
+      display: none; /* Hide the background circles on mobile for simplicity */
+    }
+  }
+  
+  .about-section-2 {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Adjust height based on content */
+    width: 100%;
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+    margin-top: 30px; /* Add margin to separate from the main section */
+    gap: 20px; /* Add gap between left and right content */
+  }
+
+  .about-section-2-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 20px;
+    width: 100%; /* Make sure left section takes full width */
+    text-align: center; /* Center text inside */
+  }
+
+  .about-section-2-left-heading-1 {
+    font-size: 1.1em;
+    font-weight: 250;
+    color: #E74040;
+  }
+
+  .about-section-2-left-heading-2 {
+    font-size: 1.6em;
+    font-weight: 300;
+    color: black;
+    max-width: 100%; /* Ensure it doesn't overflow */
+    text-align: center; /* Center text inside */
+  }
+
+  .about-section-2-right {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    overflow: hidden;
+    width: 100%; /* Make sure right section takes full width */
+  }
+
+  .about-section-2-right-content {
+    font-size: 1.3em;
+    font-weight: 300;
+    color: black;
+    max-width: 100%; /* Allow text to wrap and not overflow */
+    text-align: center; /* Center text inside */
+  }
+
+  .about-section-3 {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content horizontally */
+    height: auto; /* Allow height to adjust based on content */
+    width: 100%;
+    margin-top: 30px; /* Add margin for separation */
+    gap: 20px; /* Add gap between items */
+  }
+
+  .about-section-3-content {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+    height: auto; /* Allow content to adjust based on size */
+    width: 100%;
+    gap: 30px; /* Add gap between items */
+  }
+
+  .about-section-3-item {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Make sure items take full width */
+  }
+
+  .about-section-3-item-heading-1 {
+    font-size: 2em;
+    font-weight: 600;
+    color: black;
+    text-align: center; /* Center text */
+  }
+
+  .about-section-3-item-heading-2 {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: gray;
+    text-align: center; /* Center text */
+  }
+
+  .about-team-section {
+    display: flex;
+    flex-direction: column; /* Stack team sections vertically */
+    height: auto; /* Allow height to adjust based on content */
+    width: 100%;
+    overflow: hidden; /* Prevent overflow */
+    gap: 50px; /* Add gap between sections */
+    margin-top: 30px; /* Add margin to separate from other sections */
+  }
+
+  .about-team-heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .about-team-heading-1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: black;
+    text-align: center; /* Center the heading */
+  }
+
+  .about-team-heading-2 {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: gray;
+    max-width: 500px;
+    text-align: center; /* Center the subheading */
+  }
+
+  .about-team-container {
+    display: flex;
+    flex-direction: column; /* Stack team boxes vertically */
+    gap: 20px; /* Add space between team boxes */
+    width: 100%;
+    align-items: center; /* Center the team boxes */
+    margin-top: 30px; /* Add margin to separate team section */
+  }
+
+  .about-team-box {
+    display: flex;
+    flex-direction: column; /* Stack content vertically inside each team box */
+    height: auto; /* Allow height to adjust based on content */
+    width: 100%;
+    max-width: 320px; /* Limit box width */
+    align-items: center; /* Center content horizontally */
+    overflow: hidden;
+  }
+
+  .about-team-box-img {
+    display: flex;
+    height: 200px; /* Adjust image height */
+    width: 100%; /* Ensure image takes full width of the box */
+  }
+
+  .about-team-img-img {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Ensure the image covers the box without stretching */
+  }
+
+  .about-team-box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 20px; /* Add padding inside the box */
+    background-color: #f4f4f4; /* Add background color for better visibility */
+    border-radius: 10px; /* Round corners for a smooth look */
+  }
+
+  .about-team-content-heading-1 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: black;
+    text-align: center; /* Center the name */
+  }
+
+  .about-team-content-heading-2 {
+    font-size: 1.1em;
+    font-weight: 300;
+    color: black;
+    text-align: center; /* Center the position/title */
+  }
+
+  .about-team-content-socials {
+    display: flex;
+    gap: 20px;
+    color: #23a6f0;
+    justify-content: center; /* Center social icons */
+  }
+
+  .about-team-socials-facebook, .about-team-socials-instagram, .about-team-socials-twitter {
+    font-size: 1.3em;
+  }
+
+  /*about section big companies section*/
+
+  .about-company-area-section {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    height: auto; /* Allow height to adjust based on content */
+    width: 100%;
+    gap: 30px; /* Add space between the heading and logos */
+    padding: 30px 0; /* Add padding to the top and bottom for spacing */
+  }
+
+  .about-company-heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px; /* Add space between the heading and logos */
+  }
+
+  .about-company-heading-1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: black;
+    text-align: center; /* Center the heading */
+  }
+
+  .about-company-heading-2 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: gray;
+    max-width: 500px;
+    text-align: center; /* Center the secondary heading */
+  }
+
+  .about-company-area-logo-container {
+    display: flex;
+    flex-direction: column; /* Stack logos vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Add space between logos */
+    width: 100%;
+  }
+
+  .about-company-area-logo-icon {
+    font-size: 4em; /* Reduced size for better visibility on smaller screens */
+    font-weight: 600;
+    color: gray;
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+  }
+
+  .about-company-area-logo-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+
+   /* Work Section */
+   .work-section {
+    overflow: hidden; /* Ensure no overflow */
+  }
+
+  .work-container {
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  .work-content {
+    width: 100%; /* Ensure it takes full width */
+    padding: 2rem; /* Adjust padding for smaller screens */
+    flex-direction: column; /* Flex direction column for stacked layout */
+  }
+
+  .work-image {
+    width: 100%; /* Ensure image takes full width */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+  }
+
+  .work-img {
+    object-fit: contain; /* Scale the image without stretching */
+  }
+
+  /* Work Section - Button */
+  .work-button {
+    width: fit-content; /* Button width adjusted */
+    padding: 0.75rem 2rem;
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  /* Simple Pricing Section */
+  .simple-pricing-section {
+    overflow: hidden; /* Ensure no overflow */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center align content */
+  }
+
+  .simple-pricing-heading-container {
+    flex-direction: column; /* Stack heading elements vertically */
+    align-items: center; /* Center align the heading */
+  }
+
+  .simple-pricing-heading-1,
+  .simple-pricing-heading-2 {
+    text-align: center; /* Center align the text */
+  }
+
+  /* Simple Pricing Nav */
+  .simple-pricing-nav {
+    display: flex; /* Keep navbar items in flex */
+    justify-content: center; /* Center navbar items */
+    gap: 10px;
+  }
+
+  .simple-price-nav-item-1,
+  .simple-price-nav-item-2,
+  .simple-price-nav-item-3 {
+    font-size: 1.1em; /* Adjust font size for smaller screens */
+    text-align: center; /* Center align navbar items */
+  }
+
+   /* Price Plan Section */
+   .price-plan-section {
+    overflow: hidden; /* Prevent overflow */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content */
+    align-items: center; /* Align items centrally */
+    min-height: auto; /* Ensure it fits content without extra height */
+  }
+
+  .price-plan-section-container {
+    display: flex;
+    flex-direction: column; /* Stack the price plans vertically */
+    gap: 20px; /* Space between each plan */
+    padding: 20px;
+  }
+
+  /* Price Plan Card */
+  .price-plan-card {
+    width: 100%; /* Ensure the card takes full width in the container */
+    height: auto; /* Allow height to adjust based on content */
+    border: 1px solid #ECECEC;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack the content inside each card */
+    gap: 10px;
+  }
+
+  /* Plan Header */
+  .price-plan-header {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .plan-name {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #252B42;
+  }
+
+  /* Price Container */
+  .price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #23A6F0;
+    gap: 10px;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+
+  .currency {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .price-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .plan-period {
+    font-size: 1rem;
+  }
+
+  /* Plan Benefits */
+  .plan-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .benefit-item span {
+    font-size: 14px;
+    color: #252B42;
+  }
+
+  /* Benefit Item Tickmarks */
+  .tickmark-container {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Tickmark Colors */
+  .free-tickmark {
+    background-color: #BDBDBD;
+  }
+
+  .standard-tickmark-primary {
+    background-color: #2DC071;
+  }
+
+  .standard-tickmark-secondary {
+    background-color: #BDBDBD;
+  }
+
+  .premium-tickmark {
+    background-color: #2DC071;
+  }
+
+  /* Try Button */
+  .try-button {
+    margin-top: auto;
+    background: #23A6F0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Trusted Section */
+  .trusted-section {
+    display: flex;
+    flex-direction: column; /* Ensure content is displayed in column */
+    justify-content: center;
+    align-items: center; /* Center the content */
+    height: auto; /* Adjust height to fit content */
+    padding: 20px;
+  }
+
+  .trusted-section-heading {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+    font-weight: 600;
+    color: #6c757d;
+    text-align: center; /* Center the text */
+    margin-bottom: 15px; /* Add margin for spacing */
+  }
+
+  .trusted-logos-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center logos horizontally */
+    align-items: center;
+    gap: 30px; /* Reduce gap for smaller screens */
+    flex-wrap: wrap; /* Allow logos to wrap for smaller screens */
+    width: 100%;
+  }
+
+  .trusted-logo-icon {
+    font-size: 4em; /* Adjust font size for smaller screens */
+    font-weight: 600;
+    color: gray;
+  }
+  /*contact section stying*/
+
+  .contact-main-section {
+    height: auto; /* Adjust height dynamically for smaller screens */
+    padding: 20px; /* Add padding for content spacing */
+  }
+
+  .contact-main-content-container {
+    flex-direction: column; /* Stack content vertically on small screens */
+    gap: 30px;
+  }
+
+  .contact-main-content-left,
+  .contact-main-content-right {
+    width: 100%; /* Full width for smaller devices */
+  }
+
+  /*vist contact section styling*/
+
+  .visit-section {
+    height: auto; /* Adjust height for smaller screens */
+    padding: 20px; /* Add padding to prevent overflow */
+  }
+
+  .visit-heading-container {
+    text-align: center;
+    gap: 15px; /* Reduce gap for smaller screens */
+  }
+
+  .vist-heading-1 {
+    font-size: 1em; /* Adjust font size */
+  }
+
+  .visit-heading-2 {
+    font-size: 2em; /* Adjust font size */
+  }
+
+  .vist-contact-container {
+    flex-direction: column; /* Stack contact boxes vertically */
+    gap: 20px; /* Add spacing between boxes */
+  }
+
+  .visit-contact-box {
+    width: 100%; /* Make the boxes full width */
+    max-width: 400px; /* Limit max width */
+    margin: 0 auto; /* Center the boxes */
+    gap: 15px; /* Adjust gap between content */
+  }
+
+  .visit-contact-box-button {
+    width: 100%; /* Make the button full width */
+    height: 48px; /* Adjust height */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .visit-contact-box-icon {
+    font-size: 4em; /* Adjust icon size */
+  }
+}
+
+
+/* Featured Post */
