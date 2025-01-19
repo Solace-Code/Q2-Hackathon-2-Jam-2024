@@ -133,10 +133,10 @@ export default function CartPage() {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-8 rounded-lg w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-6">Checkout</h2>
+            <h2 className="text-2xl font-bold mb-6 text-black">Checkout</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-black mb-1">
                   Receiver&apos;s Full Name
                 </label>
                 <input
@@ -145,12 +145,12 @@ export default function CartPage() {
                   required
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border rounded-md text-black"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-black mb-1">
                   Phone Number
                 </label>
                 <input
@@ -159,12 +159,12 @@ export default function CartPage() {
                   required
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border rounded-md text-black"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-sm font-medium text-black mb-1">
                   Delivery Address
                 </label>
                 <input
@@ -173,7 +173,7 @@ export default function CartPage() {
                   required
                   value={formData.address}
                   onChange={handleInputChange}
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border rounded-md text-black"
                 />
               </div>
               
@@ -193,7 +193,7 @@ export default function CartPage() {
                 </div>
               </div>
               
-              <div className="border-t pt-4 mt-4">
+              <div className="border-t pt-4 mt-4 text-black">
                 <p className="text-lg font-semibold">
                   Total Amount: ${total.toFixed(2)}
                 </p>
