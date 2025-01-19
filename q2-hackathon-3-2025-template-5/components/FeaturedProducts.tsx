@@ -126,13 +126,13 @@ const FeaturedProducts: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-12">
-        <div className="flex justify-between flex-wrap sm:flex-col md:flex-row">
+        <div className="flex justify-between items-center flex-wrap sm:flex-col md:flex-row">
           {products.slice(0, 4).map((product) => (
             <ProductCard key={product._id} {...product} />
           ))}
         </div>
 
-        <div className="flex justify-between flex-wrap sm:flex-col md:flex-row">
+        <div className="flex justify-between items-center flex-wrap sm:flex-col md:flex-row">
           {products.slice(4, 8).map((product) => (
             <ProductCard key={product._id} {...product} />
           ))}
