@@ -74,51 +74,90 @@ body {
   height: 90px;
   width: 100%;
   align-items: center;
-  overflow: hidden;
 }
 
-.navbar-container{
+.navbar-container {
   display: flex;
   height: 100%;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between; /* Better spacing for logo, links, and items */
   align-items: center;
-  gap: 50px;
-  overflow: hidden;
+  padding: 0 20px; /* Add padding for spacing */
   background-color: white;
 }
 
-.navbar-logo-container{
+.navbar-logo-container {
   font-size: 1.5em;
   font-weight: 600;
   color: black;
 }
 
-.navbar-ul{
+.navbar-ul {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.navbar-li{
+.navbar-li {
   font-size: 1.1em;
   font-weight: 300;
   color: black;
 }
 
-.navbar-li:hover{
+.navbar-li:hover {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 5px;
 }
 
-.navbar-items-container{
+.navbar-items-container {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 20px; /* Ensure proper spacing between items */
 }
 
-.navbar-account-container{
+.search-section-container {
+  display: flex;
+  align-items: center;
+  position: relative; /* Position relative for the hidden input */
+}
+
+.search-section-input-container {
+  top: 0;
+  left: 40px; /* Adjust based on icon position */
+  display: flex;
+  height: 50px;
+  width: 0px; /* Initially hidden */
+  overflow: hidden;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  z-index: 100;
+}
+
+.search-section-container:hover .search-section-input-container {
+  width: 300px; /* Adjust width for expanded state */
+  opacity: 1;
+}
+
+.search-section-input {
+  flex: 1;
+  padding: 0 10px;
+  border: 1px solid #00b4d9;
+  border-radius: 5px;
+  height: 100%;
+  font-size: 1em;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  color: black;
+}
+
+.search-section-input:focus {
+  box-shadow: 0 0 5px rgba(0, 180, 217, 0.8);
+}
+
+.navbar-account-container,
+.navbar-cart-container,
+.navbar-wishlist-container {
   display: flex;
   align-items: center;
   color: #00b0d7;
@@ -126,11 +165,63 @@ body {
   gap: 10px;
 }
 
-.navbar-search-icon, .navbar-cart-icon, .navbar-heart-icon{
+.navbar-search-icon,
+.navbar-cart-icon,
+.navbar-heart-icon {
   font-size: 1.5em;
   color: #00b4d9;
   cursor: pointer;
 }
+
+/* Search section new styling*/
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-top: 4px;
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #f3f4f6;
+}
+
+.search-result-image {
+  flex-shrink: 0;
+}
+
+.search-result-product-image {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.search-result-title {
+  font-size: 14px;
+  color: #374151;
+}
+
+.search-no-results {
+  padding: 16px;
+  text-align: center;
+  color: #6b7280;
+}
+
+
 
 .responsive-navbar-section{
   display: flex;

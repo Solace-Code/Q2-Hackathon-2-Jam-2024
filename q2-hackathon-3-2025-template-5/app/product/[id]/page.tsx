@@ -1,5 +1,5 @@
 // app/product/[id]/page.tsx
-'use client';
+"use client"
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -7,6 +7,8 @@ import { client } from '@/sanity/lib/client';
 import { useParams } from 'next/navigation';
 import Navbar from '../../../components/Navbar'; // Make sure the path is correct
 import ResponsiveNavbar from '../../../components/ResponsiveNavbar';
+import { useCart } from '../../../components/CartContext';
+import Reviews from "../../../components/Review";
 
 interface Product {
   _id: string;
@@ -22,6 +24,8 @@ interface Product {
 export default function ProductDetails() {
   const [product, setProduct] = useState<Product | null>(null);
   const params = useParams();
+  const { addToCart } = useCart();
+  const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -57,6 +61,14 @@ export default function ProductDetails() {
   const discountedPrice = product.dicountPercentage
     ? product.price * (1 - product.dicountPercentage / 100)
     : product.price;
+
+    const handleAddToCart = () => {
+      if (product) {
+        addToCart(product);
+        setAddedToCart(true);
+        setTimeout(() => setAddedToCart(false), 2000); // Reset notification after 2 seconds
+      }
+    };
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -125,8 +137,21 @@ export default function ProductDetails() {
               {product.description}
             </p>
           </div>
+
+          <div className="mt-6">
+            <button
+              onClick={handleAddToCart}
+              className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors w-full md:w-auto"
+            >
+              Add to Cart
+            </button>
+            {addedToCart && (
+              <span className="text-green-500 ml-2">Added to cart!</span>
+            )}
+          </div>
         </div>
       </div>
+      <Reviews/>
     </div>
   );
 }

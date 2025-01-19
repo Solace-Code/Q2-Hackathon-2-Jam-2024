@@ -93,7 +93,7 @@ const pricing = () => {
             </div>
         </section>
 
-        <section className='pricing-faqs-section'>
+        <section className='pricing-faqs-section' id='pricing-faqs-section'>
            <PriceFaq/>
         </section>
 
