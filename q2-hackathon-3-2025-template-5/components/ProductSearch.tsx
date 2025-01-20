@@ -1,15 +1,15 @@
-"use client"
-import React, { useState, useEffect, useRef } from 'react';
+"use client";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { createClient } from '@sanity/client';
+import { createClient } from "@sanity/client";
 
 // Create Sanity client with your env variables
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET as string,
   token: process.env.NEXT_PUBLIC_SANITY_TOKEN as string,
-  apiVersion: '2024-01-19', // Use current date
+  apiVersion: "2024-01-19",
   useCdn: true,
 });
 
@@ -24,9 +24,10 @@ interface SearchProduct {
 }
 
 const ProductSearch = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<SearchProduct[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,43 +37,45 @@ const ProductSearch = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    const searchProducts = async () => {
-      if (searchQuery.length >= 2) {
-        try {
-          // Updated query to match your schema
-          const query = `*[_type == "product" && title match $searchQuery] {
-            _id,
-            title,
-            productImage {
-              asset->{
-                url
-              }
+  const searchProducts = useCallback(async () => {
+    if (searchQuery.length >= 2) {
+      setError(null); // Clear any previous errors
+      try {
+        const query = `*[_type == "product" && title match $searchQuery] {
+          _id,
+          title,
+          productImage {
+            asset->{
+              url
             }
-          }[0...5]`; // Limiting to 5 results for performance
+          }
+        }[0...5]`; // Limit results to 5
 
-          const results = await client.fetch(query, { 
-            searchQuery: `*${searchQuery}*` 
-          });
-          setSearchResults(results);
-          setIsSearching(true);
-        } catch (error) {
-          console.error('Error searching products:', error);
-          setSearchResults([]);
-        }
-      } else {
+        const results = await client.fetch(query, {
+          searchQuery: `*${searchQuery}*`,
+        });
+
+        setSearchResults(results);
+        setIsSearching(true);
+      } catch (err) {
+        console.error("Error searching products:", err);
+        setError("An error occurred while fetching products.");
         setSearchResults([]);
-        setIsSearching(false);
       }
-    };
-
-    const debounceTimeout = setTimeout(searchProducts, 300);
-    return () => clearTimeout(debounceTimeout);
+    } else {
+      setSearchResults([]);
+      setIsSearching(false);
+    }
   }, [searchQuery]);
+
+  useEffect(() => {
+    const debounceTimeout = setTimeout(() => searchProducts(), 300);
+    return () => clearTimeout(debounceTimeout);
+  }, [searchQuery, searchProducts]);
 
   return (
     <div className="search-section-container" ref={searchContainerRef}>
@@ -87,14 +90,17 @@ const ProductSearch = () => {
 
       {isSearching && searchQuery.length >= 2 && (
         <div className="search-results-dropdown">
-          {searchResults.length > 0 ? (
+          {error ? (
+            <div className="search-error-message">{error}</div>
+          ) : searchResults.length > 0 ? (
+            
             searchResults.map((product) => (
-              <Link 
-                key={product._id} 
+              <Link
+                key={product._id}
                 href={`/product/${product._id}`}
                 className="search-result-item"
                 onClick={() => {
-                  setSearchQuery('');
+                  setSearchQuery("");
                   setIsSearching(false);
                 }}
               >
@@ -105,15 +111,14 @@ const ProductSearch = () => {
                     width={50}
                     height={50}
                     className="search-result-product-image"
+                    priority // Optimize loading
                   />
                 </div>
                 <span className="search-result-title">{product.title}</span>
               </Link>
             ))
           ) : (
-            <div className="search-no-results">
-              No products found
-            </div>
+            <div className="search-no-results">No products found</div>
           )}
         </div>
       )}

@@ -10,6 +10,7 @@ import ResponsiveNavbar from '../../../components/ResponsiveNavbar';
 import { useCart } from '../../../components/CartContext';
 import Reviews from "../../../components/Review";
 
+
 interface Product {
   _id: string;
   productImage: string;
@@ -23,30 +24,50 @@ interface Product {
 
 export default function ProductDetails() {
   const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const params = useParams();
   const { addToCart } = useCart();
   const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const query = `*[_type == "product" && _id == $id][0] {
-        _id,
-        title,
-        price,
-        "productImage": productImage.asset->url,
-        description,
-        tags,
-        dicountPercentage,
-        isNew
-      }`;
-      const data = await client.fetch(query, { id: params.id });
-      setProduct(data);
+      try {
+        setLoading(true);
+        setError(null);
+        const query = `*[_type == "product" && _id == $id][0] {
+          _id,
+          title,
+          price,
+          "productImage": productImage.asset->url,
+          description,
+          tags,
+          dicountPercentage,
+          isNew
+        }`;
+        const data: Product | null = await client.fetch(query, { id: params.id });
+        if (!data) {
+          throw new Error("Product not found");
+        }
+        setProduct(data);
+      } catch (err) {
+        console.error("Error fetching product details:", err);
+        setError("Failed to load product details. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
     };
 
-    if (params.id) {
-      fetchProduct();
-    }
+    fetchProduct();
   }, [params.id]);
+
+  if (loading) {
+    return <div>Loading product details...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
 
   if (!product) {
     return (

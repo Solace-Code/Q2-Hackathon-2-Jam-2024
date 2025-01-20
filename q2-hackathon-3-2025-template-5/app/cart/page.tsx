@@ -9,6 +9,14 @@ import ResponsiveNavbar from '@/components/ResponsiveNavbar';
 export default function CartPage() {
   const { items, removeFromCart, updateQuantity } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  interface formData {
+    fullName: string;
+    phoneNumber: string;
+    address: string;
+    paymentMethod: string;
+  }
+
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -131,93 +139,103 @@ export default function CartPage() {
 
       {/* Checkout Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-6 text-black">Checkout</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-black mb-1">
-                  Receiver&apos;s Full Name
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  required
-                  value={formData.fullName}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border rounded-md text-black"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-black mb-1">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  required
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border rounded-md text-black"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-black mb-1">
-                  Delivery Address
-                </label>
-                <input
-                  type="text"
-                  name="address"
-                  required
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  className="w-full p-2 border rounded-md text-black"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-black mb-1">
-                  Payment Method
-                </label>
-                <div className="flex items-center space-x-2 text-black">
-                  <input
-                    type="radio"
-                    name="paymentMethod"
-                    value="cashOnDelivery"
-                    checked={formData.paymentMethod === 'cashOnDelivery'}
-                    onChange={handleInputChange}
-                  />
-                  <span>Cash on Delivery</span>
-                </div>
-              </div>
-              
-              <div className="border-t pt-4 mt-4 text-black">
-                <p className="text-lg font-semibold">
-                  Total Amount: ${total.toFixed(2)}
-                </p>
-              </div>
-              
-              <div className="flex gap-4 mt-6">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="flex-1 px-4 py-2 border rounded-md hover:bg-gray-100"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                >
-                  Confirm Order
-                </button>
-              </div>
-            </form>
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white p-8 rounded-lg w-full max-w-md">
+      <h2 className="text-2xl font-bold mb-6 text-black">Checkout</h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Receiver&apos;s Full Name
+          </label>
+          <input
+            type="text"
+            name="fullName"
+            required
+            maxLength={30}  // Limit to 30 characters
+            pattern="^[a-zA-Z\s]+$"  // Restrict to letters and spaces
+            value={formData.fullName}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded-md text-black"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            required
+            maxLength={12}  // Limit to 12 characters
+            pattern="^[0-9]{1,12}$"  // Allow only numbers (1-12 digits)
+            value={formData.phoneNumber}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded-md text-black"
+            onInput={(e) => {
+              // Allow only numeric input
+              e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 12);
+            }}
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Delivery Address
+          </label>
+          <input
+            type="text"
+            name="address"
+            required
+            maxLength={50}  // Limit to 50 characters
+            value={formData.address}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded-md text-black"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Payment Method
+          </label>
+          <div className="flex items-center space-x-2 text-black">
+            <input
+              type="radio"
+              name="paymentMethod"
+              value="cashOnDelivery"
+              checked={formData.paymentMethod === 'cashOnDelivery'}
+              onChange={handleInputChange}
+            />
+            <span>Cash on Delivery</span>
           </div>
         </div>
-      )}
+
+        <div className="border-t pt-4 mt-4 text-black">
+          <p className="text-lg font-semibold">
+            Total Amount: ${total.toFixed(2)}
+          </p>
+        </div>
+
+        <div className="flex gap-4 mt-6">
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(false)}
+            className="flex-1 px-4 py-2 border rounded-md hover:bg-gray-100"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          >
+            Confirm Order
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
 
       {/* Success Message */}
       {showSuccess && (

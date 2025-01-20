@@ -64,13 +64,7 @@ const ReviewSection = () => {
 
   const StarRating = ({ filled, hovered }: { filled: boolean; hovered: boolean }) => (
     <Star
-      className={`w-6 h-6 ${
-        filled 
-          ? 'text-yellow-400 fill-yellow-400' 
-          : hovered 
-            ? 'text-yellow-200 fill-yellow-200' 
-            : 'text-gray-300'
-      }`}
+      className={`w-6 h-6 ${filled ? 'text-yellow-400 fill-yellow-400' : hovered ? 'text-yellow-200 fill-yellow-200' : 'text-gray-300'}`}
     />
   );
 
@@ -80,7 +74,7 @@ const ReviewSection = () => {
   return (
     <div className="w-full max-w-4xl mx-auto py-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold">Product Reviews</h2>
+        <h2 className="text-2xl font-bold text-black">Product Reviews</h2> {/* Updated to black */}
         <div className="flex items-center gap-2 mt-2">
           <div className="flex">
             {[1, 2, 3, 4, 5].map((star) => (
@@ -127,16 +121,14 @@ const ReviewSection = () => {
             <textarea
               value={newReview}
               onChange={(e) => setNewReview(e.target.value)}
-              className="w-full p-4 border rounded-lg resize-none h-24"
+              className="w-full p-4 border rounded-lg resize-none h-24 text-black"
               placeholder="Write your review..."
             />
             <div className="flex justify-end mt-2">
               <button
                 type="submit"
                 disabled={rating === 0}
-                className={`flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg ${
-                  rating === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800'
-                }`}
+                className={`flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg ${rating === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800'}`}
               >
                 <Send className="w-4 h-4" />
                 Post Review
@@ -155,7 +147,7 @@ const ReviewSection = () => {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <div className="flex justify-between items-start mb-2">
                   <div>
-                    <h3 className="font-semibold">{review.author}</h3>
+                    <h3 className="font-semibold text-black">{review.author}</h3> {/* Updated to black */}
                     <div className="flex items-center gap-2">
                       <div className="flex">
                         {[1, 2, 3, 4, 5].map((star) => (

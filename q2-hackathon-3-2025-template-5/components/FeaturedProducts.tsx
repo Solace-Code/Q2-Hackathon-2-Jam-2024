@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { client } from '../sanity/lib/client';
 
+
 interface Product {
   _id: string;
   productImage: string;
@@ -95,25 +96,44 @@ const ProductCard: React.FC<Product> = ({
 
 const FeaturedProducts: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const query = `*[_type == "product"][0...8] {
-        _id,
-        title,
-        price,
-        "productImage": productImage.asset->url,
-        description,
-        tags,
-        dicountPercentage,
-        isNew
-      }`;
-      const data: Product[] = await client.fetch(query);
-      setProducts(data);
+      try {
+        setLoading(true);
+        setError(null);
+        const query = `*[_type == "product"][0...8] {
+          _id,
+          title,
+          price,
+          "productImage": productImage.asset->url,
+          description,
+          tags,
+          dicountPercentage,
+          isNew
+        }`;
+        const data: Product[] = await client.fetch(query);
+        setProducts(data);
+      } catch (err) {
+        console.error("Error fetching products:", err);
+        setError("Failed to load products. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return <div className='text-black'>Loading featured products...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
 
   return (
     <div className="container mx-auto px-4 py-12">
