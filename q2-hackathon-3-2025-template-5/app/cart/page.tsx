@@ -33,7 +33,7 @@ export default function CartPage() {
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target as HTMLInputElement;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -174,7 +174,8 @@ export default function CartPage() {
             className="w-full p-2 border rounded-md text-black"
             onInput={(e) => {
               // Allow only numeric input
-              e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 12);
+              const input = e.target as HTMLInputElement; // Cast e.target as HTMLInputElement
+              input.value = input.value.replace(/[^0-9]/g, '').slice(0, 12); // Restrict to numeric input
             }}
           />
         </div>
